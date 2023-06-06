@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using CoffeeRent.Services;
 using CoffeeRent.Services.Implements;
 using CoffeeRent.Models;
+using CoffeeRent.Controllers.@enum;
 
 namespace CoffeeRent.Controllers
 {
@@ -33,14 +34,16 @@ namespace CoffeeRent.Controllers
 
         // POST: api/Productos
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Productos Post([FromBody] Productos producto)
         {
+            return productosServicio.IngresaProducto(producto.nombre, producto.descripcion, producto.precio, producto.tipo_id, producto.descuento_id, producto.stock);
         }
 
         // PUT: api/Productos/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public Productos Put(String id, [FromBody] Productos producto)
         {
+            return productosServicio.ActualizaProducto(id, producto);
         }
 
         // DELETE: api/Productos/5

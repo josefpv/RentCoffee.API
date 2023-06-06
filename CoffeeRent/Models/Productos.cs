@@ -6,7 +6,7 @@ namespace CoffeeRent.Models
 	public class Productos
 	{
 
-		public int id { get; set; }
+		public string id { get; set; }
 		public String nombre { get; set; }
 		public String descripcion { get; set; }
 		public int precio { get; set; }
@@ -17,8 +17,10 @@ namespace CoffeeRent.Models
 
 		public Productos()
 		{
-			this.id = new int();
-			this.nombre = String.Empty;
+            //se genera la id de manera aleatoria
+            String id = Guid.NewGuid().ToString();
+			this.id = id;
+            this.nombre = String.Empty;
 			this.descripcion = String.Empty;
 			this.precio = new int();
 			this.stock = new int();
@@ -27,8 +29,11 @@ namespace CoffeeRent.Models
 
 		}
 
-		public Productos(int id, String nombre, String descripcion, int precio, int stock, TipoProducto tipo_id, int descuento_id)
+		public Productos(String nombre, String descripcion, int precio, int stock, TipoProducto tipo_id, int descuento_id)
 		{
+			//se genera la id de manera aleatoria
+			String id = Guid.NewGuid().ToString();
+
 			this.id = id;
 			this.nombre = nombre;
 			this.descripcion = descripcion;
